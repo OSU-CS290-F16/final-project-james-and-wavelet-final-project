@@ -2,8 +2,6 @@
 
 **James Luo and Wavelet Wang**
 
----
-
 ##General Summary
 
 A Javascript canvas that allows for drawing with a cursor and saving locally on the host computer. It would allow the user to change colors and sizes, operating essentially as a very basic microsoft paint. 
