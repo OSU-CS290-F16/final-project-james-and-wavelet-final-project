@@ -5,9 +5,11 @@
 ##General Summary
 
 A Javascript canvas that allows for drawing with a cursor and saving locally on the host computer. It would allow the user to change colors and sizes, operating essentially as a very basic microsoft paint. 
-Possible additions
- * There might be implementation for differing backgrounds, “Graph paper, line paper, etc.”. 
- * There could also be some kind of rudimentary multi-media support, something like adding photo’s etc. but that might be outside the scope of the project.
+Core Features
+
+ * Some kind of canvas that is paintable with the mouse cursor
+ * The ability to save file on the back end
+
 
 ---
 **Client Interface:**
@@ -16,3 +18,9 @@ There will probably be just one page, with most of it being taken up by the draw
 
 **Data:**
 Previous drawings will be stored/saved so that they can be accessed on subsequent visits. The user can browse through stored drawings, and delete or open any of them. Opening a drawing brings it to the drawing board, allowing it to be edited. 
+
+---
+TODO/Future Features
+
+* There might be implementation for differing backgrounds, “Graph paper, line paper, etc.”. 
+* There could also be some kind of rudimentary multi-media support, something like adding photo’s etc. but that might be outside the scope of the project.
