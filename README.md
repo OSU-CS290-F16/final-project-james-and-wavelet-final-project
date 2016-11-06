@@ -6,7 +6,8 @@
 
 A Javascript canvas that allows for drawing with a cursor and saving locally on the host computer. It would allow the user to change colors and sizes, operating essentially as a very basic microsoft paint. 
 Possible additions
-*There might be implementation for differing backgrounds, “Graph paper, line paper, etc.”. *There could also be some kind of rudimentary multi-media support, something like adding photo’s etc. but that might be outside the scope of the project.
+ * There might be implementation for differing backgrounds, “Graph paper, line paper, etc.”. 
+ * There could also be some kind of rudimentary multi-media support, something like adding photo’s etc. but that might be outside the scope of the project.
 
 
 **Client Interface:**
