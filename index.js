@@ -9,6 +9,8 @@ var ypos = 0
 var mouseButtonDown = 0
 var xprev = -1
 var yprev = -1
+var lineSize = 10;
+var lineColor = "rgba(0,0,0,255)";
 
 function clear(){
     ctx.clearRect(0,0, canvas.width, canvas.height);
@@ -23,13 +25,13 @@ function draw(ctx, x, y){
         yprev = y;
     }
 
-    ctx.fillStyle = 0,0,0,255;
+    ctx.fillStyle = lineColor;
     ctx.lineCap = "round";
 
     ctx.beginPath();
     ctx.moveTo(xprev, yprev);
     ctx.lineTo(x, y);
-    ctx.lineWidth = 10;
+    ctx.lineWidth = lineSize;
     ctx.stroke();//
     ctx.closePath();
 
@@ -60,6 +62,13 @@ function getMousePosition(event){
     ypos = event.offsetY;
 }
 
+function setSize(size){
+  lineSize = size;
+}
+
+function setColor(rd, gr, bl, op){
+  lineColor = "rgb(" + rd + "," + gr + "," + bl + "," + op + ")";
+}
 canvas.addEventListener('mousedown', handleMouseButtonDown);
 canvas.addEventListener('mousemove', handleMouseButtonMove);
 document.addEventListener('mouseup', handleMouseButtonUp);
