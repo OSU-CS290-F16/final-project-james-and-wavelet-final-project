@@ -53,7 +53,26 @@ h1{
     background-color: #e6f2ff;
     cursor: pointer;
 }
-
+.color-button{
+  border: none;
+  font-size:1rem;
+  color: rgba(0,0,0,0);
+}
+.color-input{
+  width:1rem;
+}
+#black{
+  background-color:black;
+}
+#red{
+  background-color:red;
+}
+#green{
+  background-color:green;
+}
+#blue{
+  background-color:blue;
+}
 #drawing-pad{
     float: right;
     /* border for visibility purposes */
