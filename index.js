@@ -5,10 +5,21 @@ var greenSelect = document.getElementById('green');
 var blueSelect = document.getElementById('blue');
 var customSelect = document.getElementById('custom-color');
 
+function customColorSelect (){
+  var red = document.getElementById('red-text');
+  var green = document.getElementById('green-text');
+  var blue = document.getElementById('blue-text');
+  var opacity = document.getElementById('opacity-text');
+  //TO-DO add variable checking, ensure that values must be integers
+  setColor(red.value,green.value,blue.value,opacity.value);
+  alert("test" + lineColor);
+}
+
 blackSelect.addEventListener('click',function(){lineColor = "rgba(0,0,0,255)"} );
 redSelect.addEventListener('click',function(){lineColor = "rgba(255,0,0,255)"});
 greenSelect.addEventListener('click',function(){lineColor = "rgba(0,255,0,255)"});
 blueSelect.addEventListener('click',function(){lineColor = "rgba(0,0,255,255)"});
+customSelect.addEventListener('click',customColorSelect);
 
 
 //Drawing Pad Fucntions
@@ -46,7 +57,7 @@ function draw(ctx, x, y){
     ctx.lineTo(x, y);
     ctx.lineWidth = lineSize;
     ctx.strokeStyle = lineColor;
-    ctx.stroke();//
+    ctx.stroke();
     ctx.closePath();
 
     xprev = x;
