@@ -10,6 +10,7 @@ var whiteSelect = document.getElementById('white');
 var customSelect = document.getElementById('custom-color');
 var colorBox = document.getElementById('color-indicator');
 
+//Issue when opacity != 1.0. Leaves 1.0 opacity dots as you draw
 function customColorSelect (){
   var red = document.getElementById('red-text');
   var green = document.getElementById('green-text');
