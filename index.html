@@ -23,23 +23,50 @@
 
     <main>
         <canvas id="drawing-pad" width="1000" height="1000">Cannot Display</canvas>
-        <div id = "color-select">
-          Color Picker<br>
-          <button class = "color-button" id = "black">+</button>
-          <button class = "color-button" id = "red">+</button>
-          <button class = "color-button" id = "green">+</button>
-          <button class = "color-button" id = "blue">+</button>
-          <br>
-          Custom Color<br>
-          red <input class = "color-input" type = "text" id = "red-text">
-          green <input class = "color-input" type = "text" id = "green-text">
-          blue <input class = "color-input" type = "text" id = "blue-text">
-          opacity <input class = "color-input" type = "text" id = "opacity-text">
-          <button id = "custom-color">Go!</button>
-        </div>
-        <div id = "size-select">
-          <!--To do-->
-        </div>
+        <section class="tools">
+            <div id = "color-select">
+              <label>Color Picker:</label>
+              <br>
+              <button class = "color-button" id = "black">+</button>
+              <button class = "color-button" id = "red">+</button>
+              <button class = "color-button" id = "orange">+</button>
+              <button class = "color-button" id = "yellow">+</button>
+              <button class = "color-button" id = "green">+</button>
+              <button class = "color-button" id = "blue">+</button>
+              <button class = "color-button" id = "purple">+</button>
+              <button class = "color-button" id = "white">+</button>
+              <br><br>
+              <label>Custom Color</label>
+              <br>
+              <div class='color-container'>
+                  <label>Red:</label>
+                  <input class = "color-input" type = "number" id = "red-text" placeholder="0 - 255">
+              </div>
+              <div class='color-container'>
+                  <label>Green:</label>
+                  <input class = "color-input" type = "number" id = "green-text" placeholder="0 - 255">
+              </div>
+              <div class='color-container'>
+                   <label>Blue:</label>
+                   <input class = "color-input" type = "number" id = "blue-text" placeholder="0 - 255">
+                </div>
+                <div class='color-container'>
+                   <label>Opacity:</label>
+                   <input class = "color-input" type = "number" id = "opacity-text" placeholder="0.0 - 1.0">
+                </div>
+              <button id = "custom-color">Go!</button>
+            </div>
+            <br>
+            <div>
+                <label>Current Color:</label>
+                <div id='color-indicator'></div>
+            </div>
+            <br>
+            <div id = "size-select">
+              <label for="size-input"> Size: </label>
+              <input type="number" id ="size-input" placeholder="1 - 200">
+            </div>
+        </section>
     </main>
 
     <footer>
