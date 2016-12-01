@@ -11,12 +11,12 @@ body{
 }
 
 header{
-  background-color: Grey;
 }
 
 h1{
   color:white;
-  background-color:Grey;
+  background: #a6a6a6;
+  background: linear-gradient(#a6a6a6, black);
   margin: 0;
   padding: 10px;
   font-size: 40px;
@@ -24,7 +24,8 @@ h1{
 }
 
 .navbar {
-    background-color: #b3d9ff;
+    background: #b3d9ff;
+    background: linear-gradient(#0080ff,#b3d9ff);
     font-size: 20px;
 }
 
@@ -38,6 +39,8 @@ h1{
 
 .navbar-item{
     display: inline-block;
+    background: #b3d9ff;
+    background: linear-gradient(#0080ff,#b3d9ff);
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -50,29 +53,95 @@ h1{
 }
 
 .navbar-item:hover{
-    background-color: #e6f2ff;
+    background: #e6f2ff;
     cursor: pointer;
 }
+
+
+.tools{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 500px;
+}
+
+
+label{
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+input{
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
+/*  Trying to get the input boxes to align right
+.color-container{
+    display: flex;
+    align-items: center;
+}
+
+.color-input{
+    display: inline-block;
+    align-items: center;
+    width: 100px;
+}
+*/
+
+#size-input{
+    width: 100px;
+}
+
+#color-indicator{
+    width: 30px;
+    height: 30px;
+    background: black;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
 .color-button{
-  border: none;
+  border: 1px solid #aaa;
+  border-radius: 5px;
   font-size:1rem;
   color: rgba(0,0,0,0);
+  width: 30px;
+  height: 30px;
 }
-.color-input{
-  width:1rem;
-}
+
 #black{
-  background-color:black;
+  background:black;
 }
+
 #red{
-  background-color:red;
+  background:red;
 }
+
+#orange{
+    background: orange;
+}
+
+#yellow{
+    background: yellow;
+}
+
 #green{
-  background-color:green;
+  background:green;
 }
+
 #blue{
-  background-color:blue;
+  background:blue;
 }
+
+#purple{
+    background: purple;
+}
+
+#white{
+    background: white;
+}
+
 #drawing-pad{
     float: right;
     /* border for visibility purposes */
