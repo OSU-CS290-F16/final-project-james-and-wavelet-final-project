@@ -14,6 +14,10 @@ var c1r, c1g , c1b;
 var c2r, c2g , c2b;
 var c3r, c3g , c3b;
 var c4r, c4g , c4b;
+var c5r, c5g , c5b;
+var c6r, c6g , c6b;
+var c7r, c7g , c7b;
+var c8r, c8g , c8b;
 var ccr = 0, ccg = 0, ccb = 0;
 
 //When clicking Go! under custom color
@@ -21,14 +25,20 @@ function handleCustomButton (){
   var red = document.getElementById('red-text');
   var green = document.getElementById('green-text');
   var blue = document.getElementById('blue-text');
+  if(red.value == ''){
+      red.value = '0';
+  }
+  if(green.value == ''){
+      green.value = '0';
+  }
+  if(blue.value == ''){
+      blue.value = '0';
+  }
   setColor(red.value,green.value,blue.value);
   colorBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
-  ccr = red.value;
-  ccg = green.value;
-  ccb = blue.value;
 }
 
-var customButton = document.getElementById('custom-color');
+var customButton = document.getElementById('custom-button');
 customButton.addEventListener('click',handleCustomButton);
 
 //When changing the numerical color values
@@ -54,6 +64,24 @@ function handleCustomChange(){
     if(blue.value>255){
         blue.value = '255';
     }
+    if((red.value >=0) && (red.value<=255)){
+        ccr = red.value;
+    }
+    else{
+        ccr = '0';
+    }
+    if((green.value >=0) && (green.value<=255)){
+        ccg = green.value;
+    }
+    else{
+        ccg = '0';
+    }
+    if((blue.value >=0) && (blue.value<=255)){
+        ccb = blue.value;
+    }
+    else{
+        ccb = '0';
+    }
     customBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
 }
 
@@ -65,64 +93,44 @@ for (var i = 0; i < customColorSelect.length; i++){
 //Preset Color select
 blackSelect.addEventListener('click',function(){
     setColor(0,0,0);
-    ccr = 0;
-    ccg = 0;
-    ccb = 0;
     colorBox.style.background = 'black';
 } );
 redSelect.addEventListener('click',function(){
     setColor(255,0,0);
-    ccr = 255;
-    ccg = 0;
-    ccb = 0;
     colorBox.style.background = 'red';
 });
 orangeSelect.addEventListener('click', function(){
     setColor(255,165,0);
-    ccr = 255;
-    ccg = 165;
-    ccb = 0;
     colorBox.style.background = 'orange';
 });
 yellowSelect.addEventListener('click', function(){
     setColor(255,255,0);
-    ccr = 255;
-    ccg = 255;
-    ccb = 0;
     colorBox.style.background = 'yellow';
 });
 greenSelect.addEventListener('click',function(){
     setColor(0,128,0);
-    ccr = 0;
-    ccg = 128;
-    ccb = 0;
     colorBox.style.background = 'green';
 });
 blueSelect.addEventListener('click',function(){
     setColor(0,0,255);
-    ccr = 0;
-    ccg = 0;
-    ccb = 255;
     colorBox.style.background = 'blue';
 });
 purpleSelect.addEventListener('click', function(){
     setColor(128,0,128);
-    ccr = 128;
-    ccg = 0;
-    ccb = 128;
     colorBox.style.background = 'purple';
 });
 whiteSelect.addEventListener('click', function(){
     setColor(255,255,255);
-    ccr = 255;
-    ccb = 255;
-    ccg = 255;
     colorBox.style.background = 'white';
 });
 
 //Saving colors to custom palette
 function handleSaveColor(){
     if ((ccr != c1r) || (ccg != c1g) || (ccb != c1b)){
+        c8r = c7r, c8g = c7g, c8b = c7b;
+        c7r = c6r, c7g = c6g, c7b = c6b;
+        c6r = c5r, c6g = c5g, c6b = c5b;
+        c5r = c4r, c5g = c4g, c5b = c4b;
         c4r = c3r, c4g = c3g, c4b = c3b;
         c3r = c2r, c3g = c2g, c3b = c2b;
         c2r = c1r, c2g = c1g, c2b = c1b;
@@ -131,6 +139,10 @@ function handleSaveColor(){
         customPalette[1].style.background = 'rgb(' + c2r + ',' + c2g + ',' + c2b + ')';
         customPalette[2].style.background = 'rgb(' + c3r + ',' + c3g + ',' + c3b + ')';
         customPalette[3].style.background = 'rgb(' + c4r + ',' + c4g + ',' + c4b + ')';
+        customPalette[4].style.background = 'rgb(' + c5r + ',' + c5g + ',' + c5b + ')';
+        customPalette[5].style.background = 'rgb(' + c6r + ',' + c6g + ',' + c6b + ')';
+        customPalette[6].style.background = 'rgb(' + c7r + ',' + c7g + ',' + c7b + ')';
+        customPalette[7].style.background = 'rgb(' + c8r + ',' + c8g + ',' + c8b + ')';
     }
 }
 
@@ -140,19 +152,35 @@ saveButton.addEventListener('click',handleSaveColor);
 //Custom Palette color changing function
 customPalette[0].addEventListener('click', function(){
     setColor(c1r,c1g,c1b);
-    colorBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
+    colorBox.style.background = 'rgb(' + c1r + ',' + c1g + ',' + c1b + ')';
 });
 customPalette[1].addEventListener('click', function(){
     setColor(c2r,c2g,c2b);
-    colorBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
+    colorBox.style.background = 'rgb(' + c2r + ',' + c2g + ',' + c2b + ')';
 });
 customPalette[2].addEventListener('click', function(){
     setColor(c3r,c3g,c3b);
-    colorBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
+    colorBox.style.background = 'rgb(' + c3r + ',' + c3g + ',' + c3b + ')';
 });
 customPalette[3].addEventListener('click', function(){
     setColor(c4r,c4g,c4b);
-    colorBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
+    colorBox.style.background = 'rgb(' + c4r + ',' + c4g + ',' + c4b + ')';
+});
+customPalette[4].addEventListener('click', function(){
+    setColor(c5r,c5g,c5b);
+    colorBox.style.background = 'rgb(' + c5r + ',' + c5g + ',' + c5b + ')';
+});
+customPalette[5].addEventListener('click', function(){
+    setColor(c6r,c6g,c6b);
+    colorBox.style.background = 'rgb(' + c6r + ',' + c6g + ',' + c6b + ')';
+});
+customPalette[6].addEventListener('click', function(){
+    setColor(c7r,c7g,c7b);
+    colorBox.style.background = 'rgb(' + c7r + ',' + c7g + ',' + c7b + ')';
+});
+customPalette[7].addEventListener('click', function(){
+    setColor(c8r,c8g,c8b);
+    colorBox.style.background = 'rgb(' + c8r + ',' + c8g + ',' + c8b + ')';
 });
 
 //Size select
