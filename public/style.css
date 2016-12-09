@@ -1,0 +1,226 @@
+/*
+ *Style sheet for index.html
+ */
+html{
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Liberation Sans', 'Arial', sans-serif;
+  background: #bfbfbf;
+}
+
+body{
+  margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+h1{
+  color:white;
+  background: #404040;
+  margin: 0;
+  padding: 10px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.navbar {
+    background: #0099ff;
+    font-size: 20px;
+}
+
+.navbar-list{
+    display: inline;
+    margin: 0px;
+    padding:0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-item{
+    display: inline;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.not-link{
+    padding: 10px 20px;
+}
+
+.navbar-item a{
+    display:inline-block;
+    padding: 10px 20px;
+}
+
+.navbar-right{
+    float: right;
+}
+
+.navbar-item:hover{
+    background: #b3e0ff;
+    cursor: pointer;
+}
+
+.navbar-item:hover a{
+    background: #b3e0ff;
+    cursor: pointer;
+}
+
+img{
+    height:200px;
+    width:200px;
+}
+
+.basic-message {
+    flex: 1 100%;
+    text-align: center;
+}
+
+.basic-message h2, .basic-message h3,
+.basic-message h4, .basic-message h5,
+.basic-message h6{
+    margin: 0px;
+    font-weight: normal;
+}
+
+.basic-message h2 {
+    font-size: 72px;
+}
+
+.basic-message h3{
+    font-size: 54px;
+}
+
+.basic-message h4 {
+    font-size: 45px;
+}
+
+.basic-message h5{
+    font-size: 36px;
+}
+
+.basic-message h6{
+    font-size: 18px;
+}
+
+.select-container{
+    margin-top: 20px;
+}
+
+#select-canvas{
+    min-width: 300px;
+}
+
+.tools{
+    padding: 10px;
+    clear: both;
+}
+
+.toolbar{
+    float: left;
+    width: 22%;
+}
+
+.custom-section{
+    width:12%;
+}
+
+#drawing-pad{
+    clear: both;
+    background: white;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+label{
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.color-container label{
+    width: 40px;
+    display: inline-block;
+}
+
+input{
+    width: 60px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
+.color-container{
+    padding: 1px;
+}
+
+#size-select label{
+    width: 40px;
+    display: inline-block;
+}
+
+
+#color-indicator{
+    width: 65px;
+    height: 65px;
+    margin: 4px;
+    background: black;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+/* Needs to be separate from color-indicator to change backgrounds separately */
+#custom-indicator{
+    width: 81px;
+    height: 81px;
+    margin: 4px;
+    background: black;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.color-button{
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size:1rem;
+  margin: 3px;
+  color: rgba(0,0,0,0);
+  width: 40px;
+  height: 40px;
+}
+
+#black{
+  background:black;
+}
+
+#red{
+  background:red;
+}
+
+#orange{
+    background: orange;
+}
+
+#yellow{
+    background: yellow;
+}
+
+#green{
+  background:green;
+}
+
+#blue{
+  background:blue;
+}
+
+#purple{
+    background: purple;
+}
+
+#white{
+    background: white;
+}
