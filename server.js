@@ -77,7 +77,7 @@ function addToJson(jsonIn){
   console.log(colorsJson);
   var colors = JSON.parse(colorsJson);
   console.log(colors);
-  console.log(colorSetNum);
+  console.log(jsonIn.title);
   colors[colorSetNum] = jsonIn;
   colorSetNum += 1;
   var colorsJson = JSON.stringify(colors);
