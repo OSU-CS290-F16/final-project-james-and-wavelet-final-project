@@ -477,7 +477,8 @@ function saveColors() {
   color8.c8b = c8b;
   colorIn.color8 = color8;
   //Get Name
-  
+  var palletName = document.getElementById('palette-name').value;
+  colorIn.title = palletName;
   console.log(colorIn);
   var jsonString = JSON.stringify(colorIn);//Converting to json.
   console.log(jsonString);
