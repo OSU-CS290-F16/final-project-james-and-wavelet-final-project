@@ -2,6 +2,7 @@ var path = require('path');
 var fs = require('fs');
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 var colorData = require('./colors');
 var canvasData = require('./canvases');
 
@@ -12,9 +13,17 @@ var port = process.env.PORT || 3000;
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars');
+app.use(bodyParser.json({type:"*/*"}));
 
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Grab data and write to json
+app.post('/post',function (req,res){
+  //Testing to see if data made it in
+  console.log(req.body);
+  res.send(req.body);
+});
 
 app.get('/', function (req, res){
     res.status(200).render('index',{

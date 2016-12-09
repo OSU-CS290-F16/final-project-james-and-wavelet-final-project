@@ -478,8 +478,12 @@ function saveColors() {
   colorIn.colorSet8 = colorSet8;
   var jsonString = JSON.stringify(colorIn);//Converting to json.
   console.log(jsonString);
-  //Using HTTP GET to pass data to client
-  //$http.get('color_data',{params: colorIn)
+  //sending data to server
+  fetch("/post",{method:"POST",body:jsonString}).then(function(res){
+    return res.text();
+  }).then(function(text){
+    console.log(text);
+  });
 };
 //Grab save color button
 var saveColorButton = document.getElementById('save-color-set');
