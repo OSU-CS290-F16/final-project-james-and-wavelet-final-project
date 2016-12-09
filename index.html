@@ -22,26 +22,26 @@
 
 
     <main>
-        <canvas id="drawing-pad" width="1000" height="1000">Cannot Display</canvas>
         <section class="tools">
-            <div id = "color-select">
+            <div class = "toolbar">
               <label>Color Picker:</label>
               <br>
               <button class = "color-button" id = "black">+</button>
               <button class = "color-button" id = "red">+</button>
-              <br>
               <button class = "color-button" id = "orange">+</button>
               <button class = "color-button" id = "yellow">+</button>
               <br>
               <button class = "color-button" id = "green">+</button>
               <button class = "color-button" id = "blue">+</button>
-              <br>
               <button class = "color-button" id = "purple">+</button>
               <button class = "color-button" id = "white">+</button>
-              <br><br>
+          </div>
+          <div class = "toolbar custom-section">
               <label>Custom Color</label>
               <br>
-              <button class = "color-button" id = "custom-indicator">+</button>
+              <div id = "custom-indicator"></div>
+          </div>
+          <div class = "toolbar">
               <div class='color-container'>
                   <label>Red:</label>
                   <input class = "color-input" type = "number" id = "red-text" placeholder="0 - 255">
@@ -54,32 +54,41 @@
                    <label>Blue:</label>
                    <input class = "color-input" type = "number" id = "blue-text" placeholder="0 - 255">
                 </div>
-              <button id = "custom-color">Go!</button>
-            </div>
-            <br>
+              <div class = 'color-container'>
+                  <button id = "custom-button">Go!</button>
+              </div>
+              <div class = 'color-container'>
+                  <button id = 'save-color'>Save Custom Color</button>
+              </div>
+          </div>
 
-            <div id = 'custom-palette'>
-            <label>Custom Palette:</label>
-            <br>
-            <button class = "color-button custom-colors" id = "custom1">+</button>
-            <button class = "color-button custom-colors" id = "custom2">+</button>
-            <br>
-            <button class = "color-button custom-colors" id = "custom3">+</button>
-            <button class = "color-button custom-colors" id = "custom4">+</button>
+            <div class = "toolbar">
+                <div id = 'custom-palette'>
+                <label>Custom Palette:</label>
+                <br>
+                <button class = "color-button custom-colors">+</button>
+                <button class = "color-button custom-colors">+</button>
+                <button class = "color-button custom-colors">+</button>
+                <button class = "color-button custom-colors">+</button>
+                <br>
+                <button class = "color-button custom-colors">+</button>
+                <button class = "color-button custom-colors">+</button>
+                <button class = "color-button custom-colors">+</button>
+                <button class = "color-button custom-colors">+</button>
+                </div>
             </div>
-            <br>
 
-            <div>
+            <div class = "toolbar">
                 <label>Current Color:</label>
                 <div id='color-indicator'></div>
-                <button id = 'save-color'>Save Color</button>
             </div>
-            <br>
             <div id = "size-select">
-              <label for="size-input"> Size: </label>
-              <input type="number" id ="size-input" placeholder="1 - 200">
+                <label for="size-input"> Size: </label>
+                <input type="number" id ="size-input" placeholder="1 - 200">
             </div>
         </section>
+
+        <canvas id="drawing-pad" width='2000' height='900'>Cannot Display</canvas>
     </main>
 
     <footer>
