@@ -26,6 +26,23 @@ app.post('/post',function (req,res){
   res.send(req.body);
   addToJson(req.body);//Becasue appending JSONS doesn't work well
 });
+//Sending data to index.js
+app.get('/colors/:set', function(req,res,next){
+  //If colors are found
+  var colorsIn = colors[req.params.set];
+  console.log(req.params.set);
+  console.log(colorsIn);
+  
+  if(colorsIn){
+    res.status(200).render('drawing-pad',{
+      title: 'Draw - Drawing Pad'
+    });
+    res.send(colorsIn);
+  }
+  else{
+    next();
+  }
+});
 
 app.get('/', function (req, res){
     res.status(200).render('index',{

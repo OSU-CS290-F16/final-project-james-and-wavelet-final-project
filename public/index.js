@@ -476,6 +476,8 @@ function saveColors() {
   color8.c8g = c8g;
   color8.c8b = c8b;
   colorIn.color8 = color8;
+  //Get Name
+  
   console.log(colorIn);
   var jsonString = JSON.stringify(colorIn);//Converting to json.
   console.log(jsonString);
@@ -492,7 +494,4 @@ var saveColorButton = document.getElementById('save-color-set');
 if(saveColorButton){
   saveColorButton.addEventListener('click',saveColors);
 }
-
-
-
 
