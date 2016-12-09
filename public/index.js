@@ -166,7 +166,12 @@ function changeSize(event){
 function handleCanvasSelect(event){
     var canvasSelection = event.target.value;
     console.log(canvasSelection)
-    window.location.href = '/colors/' + canvasSelection;
+    if (canvasSelection){
+        window.location.href = '/colors/' + canvasSelection;
+    }
+    else{
+        window.location.href = '/drawing-pad';
+    }
 }
 
 //Canvas

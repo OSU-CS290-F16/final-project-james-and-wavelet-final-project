@@ -29,15 +29,14 @@ app.post('/post',function (req,res){
 //Sending data to index.js
 app.get('/colors/:set', function(req,res,next){
   //If colors are found
-  var colorsIn = colors[req.params.set];
-  console.log(req.params.set);
-  console.log(colorsIn);
-  
+  var colorsIn = colorData[req.params.set];
+  console.log('req.params.set == ',req.params.set);
+  console.log('colorsIn == ',colorsIn);
+
   if(colorsIn){
     res.status(200).render('drawing-pad',{
       title: 'Draw - Drawing Pad'
     });
-    res.send(colorsIn);
   }
   else{
     next();
@@ -47,7 +46,7 @@ app.get('/colors/:set', function(req,res,next){
 app.get('/', function (req, res){
     res.status(200).render('index',{
         title: 'Draw - Home',
-        colors: colorData
+        color: colorData
     });
 });
 
