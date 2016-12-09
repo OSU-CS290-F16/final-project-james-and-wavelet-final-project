@@ -38,9 +38,6 @@ function handleCustomButton (){
   colorBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
 }
 
-var customButton = document.getElementById('custom-button');
-customButton.addEventListener('click',handleCustomButton);
-
 //When changing the numerical color values
 function handleCustomChange(){
     var red = document.getElementById('red-text');
@@ -85,45 +82,6 @@ function handleCustomChange(){
     customBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
 }
 
-var customColorSelect = document.getElementsByClassName('color-input');
-for (var i = 0; i < customColorSelect.length; i++){
-    customColorSelect[i].addEventListener('input', handleCustomChange);
-}
-
-//Preset Color select
-blackSelect.addEventListener('click',function(){
-    setColor(0,0,0);
-    colorBox.style.background = 'black';
-} );
-redSelect.addEventListener('click',function(){
-    setColor(255,0,0);
-    colorBox.style.background = 'red';
-});
-orangeSelect.addEventListener('click', function(){
-    setColor(255,165,0);
-    colorBox.style.background = 'orange';
-});
-yellowSelect.addEventListener('click', function(){
-    setColor(255,255,0);
-    colorBox.style.background = 'yellow';
-});
-greenSelect.addEventListener('click',function(){
-    setColor(0,128,0);
-    colorBox.style.background = 'green';
-});
-blueSelect.addEventListener('click',function(){
-    setColor(0,0,255);
-    colorBox.style.background = 'blue';
-});
-purpleSelect.addEventListener('click', function(){
-    setColor(128,0,128);
-    colorBox.style.background = 'purple';
-});
-whiteSelect.addEventListener('click', function(){
-    setColor(255,255,255);
-    colorBox.style.background = 'white';
-});
-
 //Saving colors to custom palette
 function handleSaveColor(){
     if ((ccr != c1r) || (ccg != c1g) || (ccb != c1b)){
@@ -146,43 +104,6 @@ function handleSaveColor(){
     }
 }
 
-var saveButton = document.getElementById('save-color');
-saveButton.addEventListener('click',handleSaveColor);
-
-//Custom Palette color changing function
-customPalette[0].addEventListener('click', function(){
-    setColor(c1r,c1g,c1b);
-    colorBox.style.background = 'rgb(' + c1r + ',' + c1g + ',' + c1b + ')';
-});
-customPalette[1].addEventListener('click', function(){
-    setColor(c2r,c2g,c2b);
-    colorBox.style.background = 'rgb(' + c2r + ',' + c2g + ',' + c2b + ')';
-});
-customPalette[2].addEventListener('click', function(){
-    setColor(c3r,c3g,c3b);
-    colorBox.style.background = 'rgb(' + c3r + ',' + c3g + ',' + c3b + ')';
-});
-customPalette[3].addEventListener('click', function(){
-    setColor(c4r,c4g,c4b);
-    colorBox.style.background = 'rgb(' + c4r + ',' + c4g + ',' + c4b + ')';
-});
-customPalette[4].addEventListener('click', function(){
-    setColor(c5r,c5g,c5b);
-    colorBox.style.background = 'rgb(' + c5r + ',' + c5g + ',' + c5b + ')';
-});
-customPalette[5].addEventListener('click', function(){
-    setColor(c6r,c6g,c6b);
-    colorBox.style.background = 'rgb(' + c6r + ',' + c6g + ',' + c6b + ')';
-});
-customPalette[6].addEventListener('click', function(){
-    setColor(c7r,c7g,c7b);
-    colorBox.style.background = 'rgb(' + c7r + ',' + c7g + ',' + c7b + ')';
-});
-customPalette[7].addEventListener('click', function(){
-    setColor(c8r,c8g,c8b);
-    colorBox.style.background = 'rgb(' + c8r + ',' + c8g + ',' + c8b + ')';
-});
-
 //Size select
 var maxSize = 200;
 var minSize = 1;
@@ -199,91 +120,207 @@ function changeSize(event){
     }
 }
 
-var sizeSelectInput = document.getElementById('size-select');
-sizeSelectInput.addEventListener('input', changeSize);
+
+//Canvas selection
+function handleCanvasSelect(event){
+    var canvasSelection = event.target.value;
+    console.log(canvasSelection)
+    window.location.href = '/drawing-pad/' + canvasSelection;
+}
 
 //Canvas
 var canvas = document.getElementById('drawing-pad');
 
-if(canvas.getContext){
-    var ctx = canvas.getContext('2d');
-}
+if(canvas){
+    if(canvas.getContext){
+        var ctx = canvas.getContext('2d');
+    }
 
-//Drawing Pad Function
-ctx.beginPath();
-ctx.rect(0,0, canvas.width, canvas.height);
-ctx.fillStyle = 'white';
-ctx.fill();
-
-var xpos = 0
-var ypos = 0
-var mouseButtonDown = 0
-var xprev = -1
-var yprev = -1
-var lineSize = 10;
-var lineColor = "rgb(0,0,0)";
-
-//clearRect doesn't leave a white background when saving.
-function clear(){
+    //Drawing Pad Function
     ctx.beginPath();
     ctx.rect(0,0, canvas.width, canvas.height);
     ctx.fillStyle = 'white';
     ctx.fill();
-}
 
-var clearButton = document.getElementById('clear-button');
-clearButton.addEventListener('click', clear);
+    var xpos = 0
+    var ypos = 0
+    var mouseButtonDown = 0
+    var xprev = -1
+    var yprev = -1
+    var lineSize = 10;
+    var lineColor = "rgb(0,0,0)";
 
-function draw(ctx, x, y){
-    if (xprev == -1){
+    //clearRect doesn't leave a white background when saving.
+    function clear(){
+        ctx.beginPath();
+        ctx.rect(0,0, canvas.width, canvas.height);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+    }
+
+
+    function draw(ctx, x, y){
+        if (xprev == -1){
+            xprev = x;
+            yprev = y;
+        }
+
+        ctx.lineCap = "round";
+
+        ctx.beginPath();
+        ctx.moveTo(xprev, yprev);
+        ctx.lineTo(x, y);
+        ctx.lineWidth = lineSize;
+        ctx.strokeStyle = lineColor;
+        ctx.stroke();
+        ctx.closePath();
+
         xprev = x;
         yprev = y;
     }
 
-    ctx.lineCap = "round";
-
-    ctx.beginPath();
-    ctx.moveTo(xprev, yprev);
-    ctx.lineTo(x, y);
-    ctx.lineWidth = lineSize;
-    ctx.strokeStyle = lineColor;
-    ctx.stroke();
-    ctx.closePath();
-
-    xprev = x;
-    yprev = y;
-}
-
-function handleMouseButtonDown(event){
-    mouseButtonDown = 1;
-    draw(ctx, xpos, ypos);
-}
-
-function handleMouseButtonUp(){
-    mouseButtonDown = 0;
-    xprev = -1;
-    yprev = -1;
-}
-
-function handleMouseButtonMove(event){
-    getMousePosition(event);
-    if(mouseButtonDown == 1){
+    function handleMouseButtonDown(event){
+        mouseButtonDown = 1;
         draw(ctx, xpos, ypos);
     }
-}
 
-function getMousePosition(event){
-    xpos = event.offsetX;
-    ypos = event.offsetY;
-}
+    function handleMouseButtonUp(){
+        mouseButtonDown = 0;
+        xprev = -1;
+        yprev = -1;
+    }
 
-function setSize(size){
-  lineSize = size;
-}
+    function handleMouseButtonMove(event){
+        getMousePosition(event);
+        if(mouseButtonDown == 1){
+            draw(ctx, xpos, ypos);
+        }
+    }
 
-function setColor(rd, gr, bl){
-  lineColor = "rgb(" + rd + "," + gr + "," + bl + ")";
+    function getMousePosition(event){
+        xpos = event.offsetX;
+        ypos = event.offsetY;
+    }
+
+    function setSize(size){
+      lineSize = size;
+    }
+
+    function setColor(rd, gr, bl){
+      lineColor = "rgb(" + rd + "," + gr + "," + bl + ")";
+    }
 }
-canvas.addEventListener('mousedown', handleMouseButtonDown);
-canvas.addEventListener('mousemove', handleMouseButtonMove);
-document.addEventListener('mouseup', handleMouseButtonUp);
+//End of if(canvas)
+
+//Add event listeners if the corresponding case is there
+window.addEventListener('DOMContentLoaded', function(){
+    var customButton = document.getElementById('custom-button');
+    if(customButton){
+        customButton.addEventListener('click',handleCustomButton);
+    }
+
+    var customColorSelect = document.getElementsByClassName('color-input');
+    for (var i = 0; i < customColorSelect.length; i++){
+        if(customColorSelect[i]){
+        customColorSelect[i].addEventListener('input', handleCustomChange);
+        }
+    }
+    //Preset Color select
+    if(blackSelect){
+        blackSelect.addEventListener('click',function(){
+            setColor(0,0,0);
+            colorBox.style.background = 'black';
+        } );
+        redSelect.addEventListener('click',function(){
+            setColor(255,0,0);
+            colorBox.style.background = 'red';
+        });
+        orangeSelect.addEventListener('click', function(){
+            setColor(255,165,0);
+            colorBox.style.background = 'orange';
+        });
+        yellowSelect.addEventListener('click', function(){
+            setColor(255,255,0);
+            colorBox.style.background = 'yellow';
+        });
+        greenSelect.addEventListener('click',function(){
+            setColor(0,128,0);
+            colorBox.style.background = 'green';
+        });
+        blueSelect.addEventListener('click',function(){
+            setColor(0,0,255);
+            colorBox.style.background = 'blue';
+        });
+        purpleSelect.addEventListener('click', function(){
+            setColor(128,0,128);
+            colorBox.style.background = 'purple';
+        });
+        whiteSelect.addEventListener('click', function(){
+            setColor(255,255,255);
+            colorBox.style.background = 'white';
+        });
+    }
+
+
+    var saveColorButton = document.getElementById('save-color');
+    if(saveColorButton){
+        saveColorButton.addEventListener('click',handleSaveColor);
+    }
+
+    //Custom Palette color changing
+    if(customPalette[0]){
+        customPalette[0].addEventListener('click', function(){
+            setColor(c1r,c1g,c1b);
+            colorBox.style.background = 'rgb(' + c1r + ',' + c1g + ',' + c1b + ')';
+        });
+        customPalette[1].addEventListener('click', function(){
+            setColor(c2r,c2g,c2b);
+            colorBox.style.background = 'rgb(' + c2r + ',' + c2g + ',' + c2b + ')';
+        });
+        customPalette[2].addEventListener('click', function(){
+            setColor(c3r,c3g,c3b);
+            colorBox.style.background = 'rgb(' + c3r + ',' + c3g + ',' + c3b + ')';
+        });
+        customPalette[3].addEventListener('click', function(){
+            setColor(c4r,c4g,c4b);
+            colorBox.style.background = 'rgb(' + c4r + ',' + c4g + ',' + c4b + ')';
+        });
+        customPalette[4].addEventListener('click', function(){
+            setColor(c5r,c5g,c5b);
+            colorBox.style.background = 'rgb(' + c5r + ',' + c5g + ',' + c5b + ')';
+        });
+        customPalette[5].addEventListener('click', function(){
+            setColor(c6r,c6g,c6b);
+            colorBox.style.background = 'rgb(' + c6r + ',' + c6g + ',' + c6b + ')';
+        });
+        customPalette[6].addEventListener('click', function(){
+            setColor(c7r,c7g,c7b);
+            colorBox.style.background = 'rgb(' + c7r + ',' + c7g + ',' + c7b + ')';
+        });
+        customPalette[7].addEventListener('click', function(){
+            setColor(c8r,c8g,c8b);
+            colorBox.style.background = 'rgb(' + c8r + ',' + c8g + ',' + c8b + ')';
+        });
+    }
+
+    var sizeSelectInput = document.getElementById('size-select');
+    if(sizeSelectInput){
+        sizeSelectInput.addEventListener('input', changeSize);
+    }
+
+    var clearButton = document.getElementById('clear-button');
+    if(clearButton){
+        clearButton.addEventListener('click', clear);
+    }
+
+    var canvasSelect = document.getElementById('select-canvas');
+    if(canvasSelect){
+        canvasSelect.addEventListener('change', handleCanvasSelect)
+    }
+
+    if(canvas){
+        canvas.addEventListener('mousedown', handleMouseButtonDown);
+        canvas.addEventListener('mousemove', handleMouseButtonMove);
+        document.addEventListener('mouseup', handleMouseButtonUp);
+    }
+})
