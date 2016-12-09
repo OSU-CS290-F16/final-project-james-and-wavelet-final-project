@@ -46,7 +46,8 @@ app.get('/colors/:set', function(req,res,next){
 
 app.get('/', function (req, res){
     res.status(200).render('index',{
-        title: 'Draw - Home'
+        title: 'Draw - Home',
+        colors: colorData
     });
 });
 
