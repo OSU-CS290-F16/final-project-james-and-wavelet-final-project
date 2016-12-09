@@ -421,3 +421,78 @@ function save() {
 if(saveButton){
 saveButton.addEventListener('click',save, false);
 }
+
+
+//JSON saving section
+
+//Yes I realize an array would most likely work better. At this point however...
+function saveColors() {
+  var colorIn = {}; //Creating Data Object
+  //1
+  var color1 = {};//Creating Color Set 1
+  color1.c1r = c1r;
+  color1.c1g = c1g;
+  color1.c1b = c1b;
+  colorIn.color1 = color1;
+  //2
+  var color2 = {};//Creating Color Set 2
+  color2.c2r = c2r;
+  color2.c2g = c2g;
+  color2.c2b = c2b;
+  colorIn.color2 = color2;
+  //3
+  var color3 = {};//Creating Color Set 3
+  color3.c3r = c3r;
+  color3.c3g = c3g;
+  color3.c3b = c3b;
+  colorIn.color3 = color3;
+  //4
+  var color4 = {};//Creating Color Set 4
+  color4.c4r = c4r;
+  color4.c4g = c4g;
+  color4.c4b = c4b;
+  colorIn.color4 = color4;
+  //5
+  var color5 = {};//Creating Color Set 5
+  color5.c5r = c5r;
+  color5.c5g = c5g;
+  color5.c5b = c5b;
+  colorIn.color5 = color5;
+  //6
+  var color6 = {};//Creating Color Set 6
+  color6.c6r = c6r;
+  color6.c6g = c6g;
+  color6.c6b = c6b;
+  colorIn.color6 = color6;
+  //7
+  var color7 = {};//Creating Color Set 7
+  color7.c7r = c7r;
+  color7.c7g = c7g;
+  color7.c7b = c7b;
+  colorIn.color7 = color7;
+  //8
+  var color8 = {};//Creating Color Set 8
+  color8.c8r = c8r;
+  color8.c8g = c8g;
+  color8.c8b = c8b;
+  colorIn.color8 = color8;
+  console.log(colorIn);
+  var jsonString = JSON.stringify(colorIn);//Converting to json.
+  console.log(jsonString);
+  //sending data to server
+  fetch("/post",{method:"POST",body:jsonString}).then(function(res){
+    return res.text();
+  }).then(function(text){
+    console.log(text);
+  });
+};
+//Grab save color button
+var saveColorButton = document.getElementById('save-color-set');
+
+if(saveColorButton){
+  saveColorButton.addEventListener('click',saveColors);
+}
+
+
+
+
