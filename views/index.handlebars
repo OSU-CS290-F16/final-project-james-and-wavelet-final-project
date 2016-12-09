@@ -8,9 +8,11 @@
         <h5>Select an option below:</h5>
         <div class='select-container'>
             <select id = 'select-canvas'>
-                <option value="">Select a custom color palletes</option>
+                <option value="">Select a custom color pallete</option>
                 <option value="">New Color Pallete</option>
-
+                {{#each colors}}
+                    <option value='{{@key}}'>{{@key}}</option>
+                {{/each}}
             </select>
         </div>
     </div>
