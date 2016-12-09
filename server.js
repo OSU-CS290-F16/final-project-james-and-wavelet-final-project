@@ -65,7 +65,8 @@ app.get('/drawing-pad', function(req,res){
 
 app.get('/delete', function(req,res){
     res.status(200).render('delete',{
-        title: 'Draw - Delete'
+        title: 'Draw - Delete',
+        color: colorData
     })
 })
 
