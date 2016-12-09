@@ -1,0 +1,27 @@
+{
+  "name": "finalassign",
+  "version": "1.0.0",
+  "description": "simple canvas draw pad",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OSU-CS290-F16/final-project-james-and-wavelet-final-project.git"
+  },
+  "keywords": [
+    "express-handlebars"
+  ],
+  "author": "James and Wavelet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OSU-CS290-F16/final-project-james-and-wavelet-final-project/issues"
+  },
+  "homepage": "https://github.com/OSU-CS290-F16/final-project-james-and-wavelet-final-project#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0"
+  }
+}
