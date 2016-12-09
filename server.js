@@ -37,7 +37,6 @@ app.get('/colors/:set', function(req,res,next){
     res.status(200).render('drawing-pad',{
       title: 'Draw - Drawing Pad'
     });
-    res.send(colorsIn);
   }
   else{
     next();
