@@ -28,12 +28,19 @@ fetch("/get").then(function(res){
       var url = window.location.pathname;
       console.log(url);
       var end = url.split('/').pop();
-      //If it isn't a drawing pad then we made it to an actual postion
       console.log(end);
+      var colorSet = getIn[0];//set to default
+      //If it isn't a drawing pad then we made it to an actual postion
       if(end != 'drawing-pad'){
         console.log(end);
         var colorSet = getIn[end];
       }
+      console.log(colorSet.color1);
+      //Assign Color Set to variables
+      window.c1r = colorSet.color1.c1r;
+      console.log(window.c1r);
+      window.c1g = colorSet.color1.c1g;
+      window.c1b = colorSet.color1.c1b;
 });
 //When clicking Go! under custom color
 function handleCustomButton (){
