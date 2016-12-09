@@ -82,6 +82,46 @@ function handleCustomChange(){
     customBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
 }
 
+
+/*
+function startColors(){
+    c1r = colorData.color1.c1r
+    c1g = colorData.color1.c1g
+    c1b = colorData.color1.c1b
+    c2r = colorData.color2.c2r
+    c2g = colorData.color2.c2g
+    c2b = colorData.color2.c2b
+    c3r = colorData.color3.c3r
+    c3g = colorData.color3.c3g
+    c3b = colorData.color3.c3b
+    c4r = colorData.color4.c4r
+    c4g = colorData.color4.c4g
+    c4b = colorData.color4.c4b
+    c5r = colorData.color5.c5r
+    c5g = colorData.color5.c5g
+    c5b = colorData.color5.c5b
+    c6r = colorData.color6.c6r
+    c6g = colorData.color6.c6g
+    c6b = colorData.color6.c6b
+    c7r = colorData.color7.c7r
+    c7g = colorData.color7.c7g
+    c7b = colorData.color7.c7b
+    c8r = colorData.color8.c8r
+    c8g = colorData.color8.c8g
+    c8b = colorData.color8.c8b
+
+    customPalette[0].style.background = 'rgb(' + c1r + ',' + c1g + ',' + c1b + ')';
+    customPalette[1].style.background = 'rgb(' + c2r + ',' + c2g + ',' + c2b + ')';
+    customPalette[2].style.background = 'rgb(' + c3r + ',' + c3g + ',' + c3b + ')';
+    customPalette[3].style.background = 'rgb(' + c4r + ',' + c4g + ',' + c4b + ')';
+    customPalette[4].style.background = 'rgb(' + c5r + ',' + c5g + ',' + c5b + ')';
+    customPalette[5].style.background = 'rgb(' + c6r + ',' + c6g + ',' + c6b + ')';
+    customPalette[6].style.background = 'rgb(' + c7r + ',' + c7g + ',' + c7b + ')';
+    customPalette[7].style.background = 'rgb(' + c8r + ',' + c8g + ',' + c8b + ')';
+}
+
+startColors();
+*/
 //Saving colors to custom palette
 function handleSaveColor(){
     if ((ccr != c1r) || (ccg != c1g) || (ccb != c1b)){
@@ -103,6 +143,7 @@ function handleSaveColor(){
         customPalette[7].style.background = 'rgb(' + c8r + ',' + c8g + ',' + c8b + ')';
     }
 }
+
 
 //Size select
 var maxSize = 200;
@@ -158,6 +199,31 @@ if(canvas){
         ctx.fill();
     }
 
+    function saveCanvas(){
+        var saveBackground = document.getElementById('save-background');
+        var saveWindow = document.getElementById('save-window');
+        saveBackground.classList.remove('hidden');
+        saveWindow.classList.remove('hidden');
+    }
+
+    function closeWindow(){
+        var saveBackground = document.getElementById('save-background');
+        var saveWindow = document.getElementById('save-window');
+        saveBackground.classList.add('hidden');
+        saveWindow.classList.add('hidden');
+
+        clearInput();
+    }
+
+    function clearInput(){
+        var inputValues = document.getElementById('canvas-name');
+        inputValues.value = '';
+    }
+
+    function confirmSave(){
+
+        closeWindow();
+    }
 
     function draw(ctx, x, y){
         if (xprev == -1){
@@ -222,7 +288,7 @@ window.addEventListener('DOMContentLoaded', function(){
     var customColorSelect = document.getElementsByClassName('color-input');
     for (var i = 0; i < customColorSelect.length; i++){
         if(customColorSelect[i]){
-        customColorSelect[i].addEventListener('input', handleCustomChange);
+            customColorSelect[i].addEventListener('input', handleCustomChange);
         }
     }
     //Preset Color select
@@ -311,6 +377,26 @@ window.addEventListener('DOMContentLoaded', function(){
     var clearButton = document.getElementById('clear-button');
     if(clearButton){
         clearButton.addEventListener('click', clear);
+    }
+
+    var saveCanvasButton = document.getElementById('save-canvas-button');
+    if(saveCanvasButton){
+        saveCanvasButton.addEventListener('click', saveCanvas);
+    }
+
+    var closeSaveWindow = document.getElementById('close-x')
+    if (closeSaveWindow){
+        closeSaveWindow.addEventListener('click', closeWindow)
+    }
+
+    var cancelSaveWindow = document.getElementById('window-cancel')
+    if(cancelSaveWindow){
+        cancelSaveWindow.addEventListener('click', closeWindow)
+    }
+
+    var confirmSaveButton = document.getElementById('window-save')
+    if(confirmSaveButton){
+        confirmSaveButton.addEventListener('click', confirmSave)
     }
 
     var canvasSelect = document.getElementById('select-canvas');
