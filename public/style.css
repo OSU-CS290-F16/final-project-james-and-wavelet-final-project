@@ -4,19 +4,16 @@
 html{
   margin: 0;
   font-family: 'Helvetica Neue', 'Helvetica', 'Liberation Sans', 'Arial', sans-serif;
+  background: #bfbfbf;
 }
 
 body{
   margin: 0;
 }
 
-header{
-}
-
 h1{
   color:white;
-  background: #a6a6a6;
-  background: linear-gradient(#a6a6a6, black);
+  background: #404040;
   margin: 0;
   padding: 10px;
   font-size: 40px;
@@ -24,8 +21,7 @@ h1{
 }
 
 .navbar {
-    background: #b3d9ff;
-    background: linear-gradient(#0080ff,#b3d9ff);
+    background: #0099ff;
     font-size: 20px;
 }
 
@@ -39,8 +35,7 @@ h1{
 
 .navbar-item{
     display: inline-block;
-    background: #b3d9ff;
-    background: linear-gradient(#0080ff,#b3d9ff);
+    background: #0099ff;
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -53,61 +48,89 @@ h1{
 }
 
 .navbar-item:hover{
-    background: #e6f2ff;
+    background: #b3e0ff;
     cursor: pointer;
 }
 
-
 .tools{
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    height: 500px;
+    padding: 10px;
+    clear: both;
 }
 
+.toolbar{
+    float: left;
+    width: 22%;
+}
+
+.custom-section{
+    width:12%;
+}
+
+#drawing-pad{
+    clear: both;
+    background: white;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+}
+
+button:hover{
+    cursor: pointer;
+}
 
 label{
     font-weight: bold;
     margin-right: 20px;
 }
 
+.color-container label{
+    width: 40px;
+    display: inline-block;
+}
+
 input{
+    width: 60px;
     border: 1px solid #aaa;
     border-radius: 3px;
 }
 
-/*  Trying to get the input boxes to align right
 .color-container{
-    display: flex;
-    align-items: center;
+    padding: 1px;
 }
 
-.color-input{
+#size-select label{
+    width: 40px;
     display: inline-block;
-    align-items: center;
-    width: 100px;
 }
-*/
 
-#size-input{
-    width: 100px;
-}
 
 #color-indicator{
-    width: 30px;
-    height: 30px;
+    width: 65px;
+    height: 65px;
+    margin: 4px;
     background: black;
-    border: 1px solid #aaa;
-    border-radius: 3px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+/* Needs to be separate from color-indicator to change backgrounds separately */
+#custom-indicator{
+    width: 81px;
+    height: 81px;
+    margin: 4px;
+    background: black;
+    border: 1px solid #000;
+    border-radius: 10px;
 }
 
 .color-button{
-  border: 1px solid #aaa;
+  border: 1px solid #000;
   border-radius: 5px;
   font-size:1rem;
+  margin: 3px;
   color: rgba(0,0,0,0);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 #black{
@@ -140,12 +163,4 @@ input{
 
 #white{
     background: white;
-}
-
-#drawing-pad{
-    float: right;
-    /* border for visibility purposes */
-    border-style: solid;
-    border-width: 5px;
-    cursor: default;
 }
