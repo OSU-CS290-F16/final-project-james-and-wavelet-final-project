@@ -1,0 +1,100 @@
+      <header>
+        <h1>Drawing Pad</h1>
+        <div class = 'nav-bar'> </div>
+        <div class = "navbar">
+            <ul class = "navbar-list">
+                <li class = 'navbar-item' ><a href="/">Home</a></li>
+                <li class = 'navbar-item' ><a href="/delete">Delete</a></li>
+                <li class = "navbar-item not-link" id = "clear-button"> Clear </li>
+                <li class = "navbar-item not-link navbar-right" id = 'save-canvas-button'> Save </li>
+            </ul>
+        </div>
+    </header>
+
+
+    <main>
+        <div id = 'save-background' class = 'hidden'></div>
+        <div id = 'save-window' class = 'hidden'>
+            <div class = 'save-window-contents'>
+                <div class = 'save-window-header'>
+                    <h1>Save Canvas</h1>
+                    <button class = 'close-button' id = 'close-x'>&times;</button>
+                </div>
+                <div class = 'save-name'>
+                    <label>Name:</label>
+                    <input type = 'text' id = 'canvas-name'>
+                </div>
+                <div class = 'save-window-footer'>
+                    <button class = 'cancel-button' id = 'window-cancel'>Cancel</button>
+                    <button class = 'confirm-save' id = 'window-save'>Save</button>
+                </div>
+            </div>
+        </div>
+        <section class="tools">
+            <div class = "toolbar">
+              <label>Color Picker:</label>
+              <br>
+              <button class = "color-button" id = "black"></button>
+              <button class = "color-button" id = "red"></button>
+              <button class = "color-button" id = "orange"></button>
+              <button class = "color-button" id = "yellow"></button>
+              <br>
+              <button class = "color-button" id = "green"></button>
+              <button class = "color-button" id = "blue"></button>
+              <button class = "color-button" id = "purple"></button>
+              <button class = "color-button" id = "white"></button>
+          </div>
+          <div class = "toolbar custom-section">
+              <label>Custom Color</label>
+              <br>
+              <div id = "custom-indicator"></div>
+          </div>
+          <div class = "toolbar">
+              <div class='color-container'>
+                  <label>Red:</label>
+                  <input class = "color-input" type = "number" id = "red-text" placeholder="0 - 255">
+              </div>
+              <div class='color-container'>
+                  <label>Green:</label>
+                  <input class = "color-input" type = "number" id = "green-text" placeholder="0 - 255">
+              </div>
+              <div class='color-container'>
+                   <label>Blue:</label>
+                   <input class = "color-input" type = "number" id = "blue-text" placeholder="0 - 255">
+                </div>
+              <div class = 'color-container'>
+                  <button id = "custom-button">Go!</button>
+              </div>
+              <div class = 'color-container'>
+                  <button id = 'save-color'>Save Custom Color</button>
+              </div>
+          </div>
+
+            <div class = "toolbar">
+                <div id = 'custom-palette'>
+                <label>Custom Palette:</label>
+                <br>
+                <button class = "color-button custom-colors"></button>
+                <button class = "color-button custom-colors"></button>
+                <button class = "color-button custom-colors"></button>
+                <button class = "color-button custom-colors"></button>
+                <br>
+                <button class = "color-button custom-colors"></button>
+                <button class = "color-button custom-colors"></button>
+                <button class = "color-button custom-colors"></button>
+                <button class = "color-button custom-colors"></button>
+                </div>
+            </div>
+
+            <div class = "toolbar">
+                <label>Current Color:</label>
+                <div id='color-indicator'></div>
+            </div>
+            <div id = "size-select">
+                <label for="size-input"> Size: </label>
+                <input type="number" id ="size-input" placeholder="1 - 200">
+            </div>
+        </section>
+
+        <canvas id="drawing-pad" width='2000' height='900'>Cannot Display</canvas>
+    </main>

@@ -11,6 +11,11 @@ body{
   margin: 0;
 }
 
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
 h1{
   color:white;
   background: #404040;
@@ -34,13 +39,18 @@ h1{
 }
 
 .navbar-item{
-    display: inline-block;
-    background: #0099ff;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    display: inline;
     margin-left:10px;
     margin-right:10px;
+}
+
+.not-link{
+    padding: 10px 20px;
+}
+
+.navbar-item a{
+    display:inline-block;
+    padding: 10px 20px;
 }
 
 .navbar-right{
@@ -50,6 +60,154 @@ h1{
 .navbar-item:hover{
     background: #b3e0ff;
     cursor: pointer;
+}
+
+.navbar-item:hover a{
+    background: #b3e0ff;
+    cursor: pointer;
+}
+
+img{
+    height:200px;
+    width:200px;
+}
+
+.basic-message {
+    flex: 1 100%;
+    text-align: center;
+}
+
+.basic-message h2, .basic-message h3,
+.basic-message h4, .basic-message h5,
+.basic-message h6{
+    margin: 0px;
+    font-weight: normal;
+}
+
+.basic-message h2 {
+    font-size: 72px;
+}
+
+.basic-message h3{
+    font-size: 54px;
+}
+
+.basic-message h4 {
+    font-size: 45px;
+}
+
+.basic-message h5{
+    font-size: 36px;
+}
+
+.basic-message h6{
+    font-size: 18px;
+}
+
+.select-container{
+    margin-top: 20px;
+}
+
+#select-canvas{
+    min-width: 300px;
+}
+
+#save-background{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#save-window{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    overflow:scroll;
+}
+
+.hidden{
+    display:none;
+}
+
+.save-window-contents{
+    background: white;
+    width: auto;
+    max-width: 800px;
+    min-height: 100px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+.save-window-header{
+    position:relative;
+    padding: 10px;
+}
+
+.save-window-header h1{
+    font-size: 32px;
+    border-radius: 5px;
+}
+
+.close-button{
+    position:absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 32px;
+    color: red;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.save-name{
+    display: flex;
+    align-items:center;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.save-name input,
+.save-name textarea{
+    flex: 6 200px;
+    padding: 8px;
+    font-size: 20px;
+    border: 1px solid #aaa;
+}
+
+.save-window-footer{
+    display:flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.save-window-footer button{
+    font-size: 24px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    margin-right: 20px;
+}
+
+.cancel-button{
+    background: #ff9999;
+}
+
+.cancel-button:hover{
+    background: #ff0000;
+}
+
+.confirm-save{
+    background: #99e6ff;
+}
+
+.confirm-save:hover{
+    background: #00bfff;
 }
 
 .tools{
