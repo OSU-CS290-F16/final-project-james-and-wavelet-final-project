@@ -1,18 +1,35 @@
-    <header>
-        <h1>Final Project</h1>
+      <header>
+        <h1>Drawing Pad</h1>
         <div class = 'nav-bar'> </div>
         <div class = "navbar">
             <ul class = "navbar-list">
                 <li class = 'navbar-item' ><a href="/">Home</a></li>
                 <li class = 'navbar-item' ><a href="/delete">Delete</a></li>
                 <li class = "navbar-item not-link" id = "clear-button"> Clear </li>
-                <li class = "navbar-item not-link navbar-right"> Save </li>
+                <li class = "navbar-item not-link navbar-right" id = 'save-canvas-button'> Save </li>
             </ul>
         </div>
     </header>
 
 
     <main>
+        <div id = 'save-background' class = 'hidden'></div>
+        <div id = 'save-window' class = 'hidden'>
+            <div class = 'save-window-contents'>
+                <div class = 'save-window-header'>
+                    <h1>Save Canvas</h1>
+                    <button class = 'close-button' id = 'close-x'>&times;</button>
+                </div>
+                <div class = 'save-name'>
+                    <label>Name:</label>
+                    <input type = 'text' id = 'canvas-name'>
+                </div>
+                <div class = 'save-window-footer'>
+                    <button class = 'cancel-button' id = 'window-cancel'>Cancel</button>
+                    <button class = 'confirm-save' id = 'window-save'>Save</button>
+                </div>
+            </div>
+        </div>
         <section class="tools">
             <div class = "toolbar">
               <label>Color Picker:</label>
