@@ -112,6 +112,10 @@ img{
     min-width: 300px;
 }
 
+#delete-canvas{
+    min-width: 300px;
+}
+
 #save-background{
     position: fixed;
     top: 0;
