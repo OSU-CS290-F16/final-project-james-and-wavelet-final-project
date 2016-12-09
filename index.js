@@ -170,3 +170,9 @@ canvas.addEventListener('mousedown', handleMouseButtonDown);
 canvas.addEventListener('mousemove', handleMouseButtonMove);
 document.addEventListener('mouseup', handleMouseButtonUp);
 
+var saveCanvas = document.getElementById("save");
+function save(){
+  var canvasData = canvas.toDataURL("image/png");
+  this.href = canvasData;
+}
+saveCanvas.addEventListener('click',save,false);
