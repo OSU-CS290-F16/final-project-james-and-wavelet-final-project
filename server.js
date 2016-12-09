@@ -1,8 +1,10 @@
 var path = require('path');
+var fs = require('fs');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var colorData = require('./colors');
 var canvasData = require('./canvases');
+
 
 var app = express();
 var port = process.env.PORT || 3000;
