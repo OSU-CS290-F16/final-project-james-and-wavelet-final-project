@@ -429,53 +429,54 @@ saveButton.addEventListener('click',save, false);
 function saveColors() {
   var colorIn = {}; //Creating Data Object
   //1
-  var colorSet1 = {};//Creating Color Set 1
-  colorSet1.c1r = c1r;
-  colorSet1.c1g = c1g;
-  colorSet1.c1b = c1b;
-  colorIn.colorSet1 = colorSet1;
+  var color1 = {};//Creating Color Set 1
+  color1.c1r = c1r;
+  color1.c1g = c1g;
+  color1.c1b = c1b;
+  colorIn.color1 = color1;
   //2
-  var colorSet2 = {};//Creating Color Set 2
-  colorSet2.c2r = c2r;
-  colorSet2.c2g = c2g;
-  colorSet2.c2b = c2b;
-  colorIn.colorSet2 = colorSet2;
+  var color2 = {};//Creating Color Set 2
+  color2.c2r = c2r;
+  color2.c2g = c2g;
+  color2.c2b = c2b;
+  colorIn.color2 = color2;
   //3
-  var colorSet3 = {};//Creating Color Set 3
-  colorSet3.c3r = c3r;
-  colorSet3.c3g = c3g;
-  colorSet3.c3b = c3b;
-  colorIn.colorSet3 = colorSet3;
+  var color3 = {};//Creating Color Set 3
+  color3.c3r = c3r;
+  color3.c3g = c3g;
+  color3.c3b = c3b;
+  colorIn.color3 = color3;
   //4
-  var colorSet4 = {};//Creating Color Set 4
-  colorSet4.c4r = c4r;
-  colorSet4.c4g = c4g;
-  colorSet4.c4b = c4b;
-  colorIn.colorSet4 = colorSet4;
+  var color4 = {};//Creating Color Set 4
+  color4.c4r = c4r;
+  color4.c4g = c4g;
+  color4.c4b = c4b;
+  colorIn.color4 = color4;
   //5
-  var colorSet5 = {};//Creating Color Set 5
-  colorSet5.c5r = c5r;
-  colorSet5.c5g = c5g;
-  colorSet5.c5b = c5b;
-  colorIn.colorSet5 = colorSet5;
+  var color5 = {};//Creating Color Set 5
+  color5.c5r = c5r;
+  color5.c5g = c5g;
+  color5.c5b = c5b;
+  colorIn.color5 = color5;
   //6
-  var colorSet6 = {};//Creating Color Set 6
-  colorSet6.c6r = c6r;
-  colorSet6.c6g = c6g;
-  colorSet6.c6b = c6b;
-  colorIn.colorSet6 = colorSet6;
+  var color6 = {};//Creating Color Set 6
+  color6.c6r = c6r;
+  color6.c6g = c6g;
+  color6.c6b = c6b;
+  colorIn.color6 = color6;
   //7
-  var colorSet7 = {};//Creating Color Set 7
-  colorSet7.c7r = c7r;
-  colorSet7.c7g = c7g;
-  colorSet7.c7b = c7b;
-  colorIn.colorSet7 = colorSet7;
+  var color7 = {};//Creating Color Set 7
+  color7.c7r = c7r;
+  color7.c7g = c7g;
+  color7.c7b = c7b;
+  colorIn.color7 = color7;
   //8
-  var colorSet8 = {};//Creating Color Set 8
-  colorSet8.c8r = c8r;
-  colorSet8.c8g = c8g;
-  colorSet8.c8b = c8b;
-  colorIn.colorSet8 = colorSet8;
+  var color8 = {};//Creating Color Set 8
+  color8.c8r = c8r;
+  color8.c8g = c8g;
+  color8.c8b = c8b;
+  colorIn.color8 = color8;
+  console.log(colorIn);
   var jsonString = JSON.stringify(colorIn);//Converting to json.
   console.log(jsonString);
   //sending data to server
