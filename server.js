@@ -19,13 +19,15 @@ app.use(bodyParser.text());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //Grab data and write to json
 app.post('/post',function (req,res){
-  //Testing to see if data made it in
-  console.log(req.body);
+  //Regex Backslashes out
+  var finalData = JSON.parse(req.body);
   res.send(req.body);
-  addToJson(req.body);//Becasue appending JSONS doesn't work well
+  addToJson(finalData);//Becasue appending JSONS doesn't work well
 });
+
 //Sending data to index.js
 app.get('/colors/:set', function(req,res,next){
   //If colors are found
@@ -45,9 +47,7 @@ app.get('/colors/:set', function(req,res,next){
 //For a get request to get colors json.
 app.get('/get',function(req,res){
   var colorsJson = fs.readFileSync('colors.json');
-  console.log(colorsJson);
   var colors = JSON.parse(colorsJson);
-  console.log(colors);
   res.status(200).send(colors);
 });
 app.get('/', function (req, res){
@@ -79,12 +79,11 @@ app.listen(port, function () {
   console.log("== Listening on port", port);
 });
 
+//This adds the new json to the old json
 function addToJson(jsonIn){
   var colorsJson = fs.readFileSync('colors.json');
-  console.log(colorsJson);
   var colors = JSON.parse(colorsJson);
   console.log(colors);
-  console.log(jsonIn.title);
   colors[colorSetNum] = jsonIn;
   colorSetNum += 1;
   var colorsJson = JSON.stringify(colors);
