@@ -487,11 +487,50 @@ function saveColors() {
   }).then(function(text){
     console.log(text);
   });
+  
+  closeColorWindow();
 };
+
+
+function saveColorName(){
+    var saveBackground = document.getElementById('save-background2');
+    var saveWindow = document.getElementById('save-window2');
+    saveBackground.classList.remove('hidden');
+    saveWindow.classList.remove('hidden');
+}
+function closeColorWindow(){
+    var saveBackground = document.getElementById('save-background2');
+    var saveWindow = document.getElementById('save-window2');
+    saveBackground.classList.add('hidden');
+    saveWindow.classList.add('hidden');
+
+    clearPaletteInput();
+}
+
+function clearPaletteInput(){
+    var inputValues = document.getElementById('palette-name');
+    inputValues.value = '';
+}
+
+var closePaletteWindow = document.getElementById('close-x2')
+if (closePaletteWindow){
+    closePaletteWindow.addEventListener('click', closeColorWindow)
+}
+
+var cancelPaletteWindow = document.getElementById('window-cancel2')
+if(cancelPaletteWindow){
+    cancelPaletteWindow.addEventListener('click', closeColorWindow)
+}
+
+var confirmSaveButton = document.getElementById('window-save2')
+if(confirmSaveButton){
+    confirmSaveButton.addEventListener('click', saveColors)
+}
+
 //Grab save color button
 var saveColorButton = document.getElementById('save-color-set');
 
 if(saveColorButton){
-  saveColorButton.addEventListener('click',saveColors);
+  saveColorButton.addEventListener('click',saveColorName);
 }
 
