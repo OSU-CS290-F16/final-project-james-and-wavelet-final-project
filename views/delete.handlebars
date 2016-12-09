@@ -7,9 +7,11 @@
         <h3>Delete an old color palette</h3>
         <h5>Select an option below:</h5>
         <div class='select-container'>
-            <select id = 'select-canvas'>
+            <select id = 'delete-canvas'>
                 <option value="">Select a color set</option>
-
+                {{#each color}}
+                    <option value='{{@key}}'>{{title}}</option>
+                {{/each}}
             </select>
         </div>
     </div>
