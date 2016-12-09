@@ -10,70 +10,65 @@ var whiteSelect = document.getElementById('white');
 var customSelect = document.getElementById('custom-color');
 var colorBox = document.getElementById('color-indicator');
 
-//Issue when opacity != 1.0. Leaves 1.0 opacity dots as you draw
 function customColorSelect (){
   var red = document.getElementById('red-text');
   var green = document.getElementById('green-text');
   var blue = document.getElementById('blue-text');
-  var opacity = document.getElementById('opacity-text');
-  if((red.value >=0) && (red.value<=255) && (green.value >=0) && (green.value<=255) && (blue.value >=0) && (blue.value<=255) && (opacity.value >=0) && (opacity.value<=255)){
-      setColor(red.value,green.value,blue.value,opacity.value);
-
-      //Pretty sure this (line below, and the style.background lines in blackSelect, redSelect, etc.) is bad practice. Change if possible
-      colorBox.style.background = 'rgba(' + red.value + ',' + green.value + ',' + blue.value + ',' + opacity.value + ')';
-  }
-  else{
-      if((red.value <0) || (red.value>255)){
-          red.value = '';
+      if(red.value <0){
+          red.value = '0';
       }
-      if((green.value <0) || (green.value>255)){
-          green.value = '';
+      if(red.value >255){
+          red.value = '255';
       }
-      if((blue.value <0) || (blue.value>255)){
-          blue.value = '';
+      if(green.value <0){
+          green.value = '0';
       }
-      if((opacity.value <0.0) || (opacity.value>1.0)){
-          opacity.value = '';
+      if(green.value>255){
+          green.value = '255';
       }
-      alert("One of your color inputs is invalid.");
-  }
+      if(blue.value <0){
+          blue.value = '0';
+      }
+      if(blue.value>255){
+          blue.value = '255';
+      }
+      setColor(red.value,green.value,blue.value);
+      colorBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
 }
 
 blackSelect.addEventListener('click',function(){
-    lineColor = "rgba(0,0,0,255)";
+    setColor(0,0,0);
     colorBox.style.background = 'black';
 } );
 redSelect.addEventListener('click',function(){
-    lineColor = "rgba(255,0,0,255)"
+    setColor(255,0,0);
     colorBox.style.background = 'red';
 });
 orangeSelect.addEventListener('click', function(){
-    lineColor = "rgba(255,165,0,255)";
+    setColor(255,165,0);
     colorBox.style.background = 'orange';
 });
 yellowSelect.addEventListener('click', function(){
-    lineColor = "rgba(255,255,0,255)";
+    setColor(255,255,0);
     colorBox.style.background = 'yellow';
 });
 greenSelect.addEventListener('click',function(){
-    lineColor = "rgba(0,255,0,255)";
+    setColor(0,128,0);
     colorBox.style.background = 'green';
 });
 blueSelect.addEventListener('click',function(){
-    lineColor = "rgba(0,0,255,255)";
+    setColor(0,0,255);
     colorBox.style.background = 'blue';
 });
 purpleSelect.addEventListener('click', function(){
-    lineColor = "rgba(128,0,128,255)";
+    setColor(128,0,128);
     colorBox.style.background = 'purple';
 });
 whiteSelect.addEventListener('click', function(){
-    lineColor = "rgba(255,255,255,255)";
+    setColor(255,255,255);
     colorBox.style.background = 'white';
 });
 customSelect.addEventListener('click',customColorSelect);
-
-
 
 //Size select
 var maxSize = 200;
@@ -107,7 +102,7 @@ var mouseButtonDown = 0
 var xprev = -1
 var yprev = -1
 var lineSize = 10;
-var lineColor = "rgba(0,0,0,1.0)";
+var lineColor = "rgb(0,0,0)";
 
 function clear(){
     ctx.clearRect(0,0, canvas.width, canvas.height);
@@ -163,10 +158,9 @@ function setSize(size){
   lineSize = size;
 }
 
-function setColor(rd, gr, bl, op){
-  lineColor = "rgb(" + rd + "," + gr + "," + bl + "," + op + ")";
+function setColor(rd, gr, bl){
+  lineColor = "rgb(" + rd + "," + gr + "," + bl + ")";
 }
 canvas.addEventListener('mousedown', handleMouseButtonDown);
 canvas.addEventListener('mousemove', handleMouseButtonMove);
 document.addEventListener('mouseup', handleMouseButtonUp);
-
