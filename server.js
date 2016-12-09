@@ -42,7 +42,14 @@ app.get('/colors/:set', function(req,res,next){
     next();
   }
 });
-
+//For a get request to get colors json.
+app.get('/get',function(req,res){
+  var colorsJson = fs.readFileSync('colors.json');
+  console.log(colorsJson);
+  var colors = JSON.parse(colorsJson);
+  console.log(colors);
+  res.status(200).send(colors);
+});
 app.get('/', function (req, res){
     res.status(200).render('index',{
         title: 'Draw - Home',

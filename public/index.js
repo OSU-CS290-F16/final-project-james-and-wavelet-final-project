@@ -19,7 +19,22 @@ var c6r, c6g , c6b;
 var c7r, c7g , c7b;
 var c8r, c8g , c8b;
 var ccr = 0, ccg = 0, ccb = 0;
-
+//Fetch colors from JSON
+fetch("/get").then(function(res){
+  return res.json() 
+  }).then(function(getIn){
+      console.log(getIn);
+      console.log(getIn[0].color1);
+      var url = window.location.pathname;
+      console.log(url);
+      var end = url.split('/').pop();
+      //If it isn't a drawing pad then we made it to an actual postion
+      console.log(end);
+      if(end != 'drawing-pad'){
+        console.log(end);
+        var colorSet = getIn[end];
+      }
+});
 //When clicking Go! under custom color
 function handleCustomButton (){
   var red = document.getElementById('red-text');
