@@ -41,6 +41,7 @@
               <br><br>
               <label>Custom Color</label>
               <br>
+              <button class = "color-button" id = "custom-indicator">+</button>
               <div class='color-container'>
                   <label>Red:</label>
                   <input class = "color-input" type = "number" id = "red-text" placeholder="0 - 255">
@@ -56,9 +57,22 @@
               <button id = "custom-color">Go!</button>
             </div>
             <br>
+
+            <div id = 'custom-palette'>
+            <label>Custom Palette:</label>
+            <br>
+            <button class = "color-button custom-colors" id = "custom1">+</button>
+            <button class = "color-button custom-colors" id = "custom2">+</button>
+            <br>
+            <button class = "color-button custom-colors" id = "custom3">+</button>
+            <button class = "color-button custom-colors" id = "custom4">+</button>
+            </div>
+            <br>
+
             <div>
                 <label>Current Color:</label>
                 <div id='color-indicator'></div>
+                <button id = 'save-color'>Save Color</button>
             </div>
             <br>
             <div id = "size-select">
