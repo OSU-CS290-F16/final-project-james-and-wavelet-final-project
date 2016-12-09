@@ -13,7 +13,7 @@ var port = process.env.PORT || 3000;
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars');
-app.use(bodyParser.json({type:"*/*"}));
+app.use(bodyParser.text());
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -23,6 +23,8 @@ app.post('/post',function (req,res){
   //Testing to see if data made it in
   console.log(req.body);
   res.send(req.body);
+  var stringOut = req.body;
+  fs.appendFileSync('colors.json',stringOut);
 });
 
 app.get('/', function (req, res){
