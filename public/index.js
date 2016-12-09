@@ -222,7 +222,7 @@ if(canvas){
 
     function confirmSave(){
 
-        closeWindow();
+        //closeWindow();
     }
 
     function draw(ctx, x, y){
@@ -410,3 +410,14 @@ window.addEventListener('DOMContentLoaded', function(){
         document.addEventListener('mouseup', handleMouseButtonUp);
     }
 })
+var saveButton = document.getElementById('save');
+var fileName = document.getElementById('canvas-name');
+//Saving function
+function save() { 
+  var canvasSave = canvas.toDataURL('image/jpeg');
+  this.href = canvasSave;
+  saveButton.download = fileName.value;
+};
+if(saveButton){
+saveButton.addEventListener('click',save, false);
+}
