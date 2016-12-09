@@ -411,10 +411,13 @@ window.addEventListener('DOMContentLoaded', function(){
     }
 })
 var saveButton = document.getElementById('save');
+var fileName = document.getElementById('canvas-name');
 //Saving function
 function save() { 
   var canvasSave = canvas.toDataURL('image/jpeg');
   this.href = canvasSave;
+  saveButton.download = fileName.value;
 };
+if(saveButton){
 saveButton.addEventListener('click',save, false);
-
+}
