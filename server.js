@@ -9,7 +9,7 @@ var jf = require('jsonfile');
 
 var app = express();
 var port = process.env.PORT || 3000;
-var colorSetNum = 1;
+
 
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -56,16 +56,10 @@ app.get('/delete/:set', function(req,res,next){
       var colorsJson = fs.readFileSync('colors.json');
       var colors = JSON.parse(colorsJson);
       console.log(colors);
-      if(remove != 0){
-        delete colors[remove];
-      }
+      delete colors[remove];
       console.log(colors);
       var colorsJson = JSON.stringify(colors);
       fs.writeFileSync('colors.json', colorsJson);
-      res.status(200).render('index',{
-          title: 'Draw - Home',
-          color: colorData
-      });
   }
   else{
     next();
@@ -111,11 +105,21 @@ app.listen(port, function () {
 function addToJson(jsonIn){
   var colorsJson = fs.readFileSync('colors.json');
   var colors = JSON.parse(colorsJson);
-  console.log(colors);
-  colors[colorSetNum] = jsonIn;
-  colorSetNum += 1;
+  
+  //Getting global json for colorSetNum
+  var colorSetNumJSON = fs.readFileSync('count.json');
+  var colorsSetNum = JSON.parse(colorSetNumJSON);
+  console.log(colorsSetNum.count);
+  var count = colorsSetNum.count;
+  
+  colors[count] = jsonIn;
+  colorsSetNum.count = count + 1;
+  
   var colorsJson = JSON.stringify(colors);
   fs.writeFileSync('colors.json', colorsJson);
+  //Write global count
+  var colorsSetNum = JSON.stringify(colorsSetNum);
+  fs.writeFileSync('count.json', colorsSetNum);
 }
 //var jsonIn = JSON.parse(fs.readFileSync('colors.json','utf8'));
 //console.log(jsonIn);
