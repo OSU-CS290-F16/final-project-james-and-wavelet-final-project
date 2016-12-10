@@ -196,6 +196,17 @@ function handleCanvasSelect(event){
     }
 }
 
+//Delete selection
+function handlePaletteDelete(event){
+    var deleteSelection = event.target.value;
+    if (deleteSelection){
+        window.location.href = '/delete/' + deleteSelection;
+    }
+    else{
+        window.location.href = '/delete';
+    }
+}
+
 //Canvas
 var canvas = document.getElementById('drawing-pad');
 
@@ -431,6 +442,11 @@ window.addEventListener('DOMContentLoaded', function(){
         canvasSelect.addEventListener('change', handleCanvasSelect)
     }
 
+    var paletteDelete = document.getElementById('delete-canvas');
+    if(paletteDelete){
+        paletteDelete.addEventListener('change', handlePaletteDelete)
+    }
+  
     if(canvas){
         canvas.addEventListener('mousedown', handleMouseButtonDown);
         canvas.addEventListener('mousemove', handleMouseButtonMove);
