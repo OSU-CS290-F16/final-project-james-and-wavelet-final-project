@@ -28,9 +28,5 @@ Simply run `npm install` then `npm start`. After that simply navigate to your lo
 Known Bugs
 
   *  The custom profiles don't update in live time from the JSON. This is a known bug most likely to do with the asynchronus nature of our file system. This applies to the drop down menus in both Home (index) and Delete. Sorry.
-  *  Deleting all elements/palettes of colors.json makes getIn[0] invalid, and it becomes impossible to write onto it apparently. Originally, we had 
-       if(remove != 0){
-+        delete colors[remove];
-+      }
-in server.js (in  app.get('/delete/:set', function(req,res,next), replacing line 59) to stop it from removing the element with key == 0, but removed it to fix some other bugs and didn't have time to re-add it before the deadline.  
+  *  Deleting all elements/palettes of colors.json makes getIn[0] invalid, and it becomes impossible to write onto it apparently. Originally, we had if(remove != 0){delete colors[remove];} in server.js (in  app.get('/delete/:set', function(req,res,next), replacing line 59) to stop it from removing the element with key == 0, but removed it to fix some other bugs and didn't have time to re-add it before the deadline.  
  *   Deleting a palette routes to non-existent page (/delete/{{key}}), since we used the path to determine which element to delete from colors.json. This means that every delete puts you in a 404 page, although aside from that it works as intended. 
