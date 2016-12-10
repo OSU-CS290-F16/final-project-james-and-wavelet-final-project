@@ -35,12 +35,33 @@ fetch("/get").then(function(res){
         console.log(end);
         var colorSet = getIn[end];
       }
-      console.log(colorSet.color1);
       //Assign Color Set to variables
       window.c1r = colorSet.color1.c1r;
-      console.log(window.c1r);
       window.c1g = colorSet.color1.c1g;
       window.c1b = colorSet.color1.c1b;
+      window.c2r = colorSet.color2.c2r;
+      window.c2g = colorSet.color2.c2g;
+      window.c2b = colorSet.color2.c2b;
+      window.c3r = colorSet.color3.c3r;
+      window.c3g = colorSet.color3.c3g;
+      window.c3b = colorSet.color3.c3b;
+      window.c4r = colorSet.color4.c4r;
+      window.c4g = colorSet.color4.c4g;
+      window.c4b = colorSet.color4.c4b;
+      window.c5r = colorSet.color5.c5r;
+      window.c5g = colorSet.color5.c5g;
+      window.c5b = colorSet.color5.c5b;
+      window.c6r = colorSet.color6.c6r;
+      window.c6g = colorSet.color6.c6g;
+      window.c6b = colorSet.color6.c6b;
+      window.c7r = colorSet.color7.c7r;
+      window.c7g = colorSet.color7.c7g;
+      window.c7b = colorSet.color7.c7b;
+      window.c8r = colorSet.color8.c8r;
+      window.c8g = colorSet.color8.c8g;
+      window.c8b = colorSet.color8.c8b;
+
+      displayColors();
 });
 //When clicking Go! under custom color
 function handleCustomButton (){
@@ -104,46 +125,6 @@ function handleCustomChange(){
     customBox.style.background = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
 }
 
-
-/*
-function startColors(){
-    c1r = colorData.color1.c1r
-    c1g = colorData.color1.c1g
-    c1b = colorData.color1.c1b
-    c2r = colorData.color2.c2r
-    c2g = colorData.color2.c2g
-    c2b = colorData.color2.c2b
-    c3r = colorData.color3.c3r
-    c3g = colorData.color3.c3g
-    c3b = colorData.color3.c3b
-    c4r = colorData.color4.c4r
-    c4g = colorData.color4.c4g
-    c4b = colorData.color4.c4b
-    c5r = colorData.color5.c5r
-    c5g = colorData.color5.c5g
-    c5b = colorData.color5.c5b
-    c6r = colorData.color6.c6r
-    c6g = colorData.color6.c6g
-    c6b = colorData.color6.c6b
-    c7r = colorData.color7.c7r
-    c7g = colorData.color7.c7g
-    c7b = colorData.color7.c7b
-    c8r = colorData.color8.c8r
-    c8g = colorData.color8.c8g
-    c8b = colorData.color8.c8b
-
-    customPalette[0].style.background = 'rgb(' + c1r + ',' + c1g + ',' + c1b + ')';
-    customPalette[1].style.background = 'rgb(' + c2r + ',' + c2g + ',' + c2b + ')';
-    customPalette[2].style.background = 'rgb(' + c3r + ',' + c3g + ',' + c3b + ')';
-    customPalette[3].style.background = 'rgb(' + c4r + ',' + c4g + ',' + c4b + ')';
-    customPalette[4].style.background = 'rgb(' + c5r + ',' + c5g + ',' + c5b + ')';
-    customPalette[5].style.background = 'rgb(' + c6r + ',' + c6g + ',' + c6b + ')';
-    customPalette[6].style.background = 'rgb(' + c7r + ',' + c7g + ',' + c7b + ')';
-    customPalette[7].style.background = 'rgb(' + c8r + ',' + c8g + ',' + c8b + ')';
-}
-
-startColors();
-*/
 //Saving colors to custom palette
 function handleSaveColor(){
     if ((ccr != c1r) || (ccg != c1g) || (ccb != c1b)){
@@ -155,15 +136,19 @@ function handleSaveColor(){
         c3r = c2r, c3g = c2g, c3b = c2b;
         c2r = c1r, c2g = c1g, c2b = c1b;
         c1r = ccr, c1g = ccg, c1b = ccb;
-        customPalette[0].style.background = 'rgb(' + c1r + ',' + c1g + ',' + c1b + ')';
-        customPalette[1].style.background = 'rgb(' + c2r + ',' + c2g + ',' + c2b + ')';
-        customPalette[2].style.background = 'rgb(' + c3r + ',' + c3g + ',' + c3b + ')';
-        customPalette[3].style.background = 'rgb(' + c4r + ',' + c4g + ',' + c4b + ')';
-        customPalette[4].style.background = 'rgb(' + c5r + ',' + c5g + ',' + c5b + ')';
-        customPalette[5].style.background = 'rgb(' + c6r + ',' + c6g + ',' + c6b + ')';
-        customPalette[6].style.background = 'rgb(' + c7r + ',' + c7g + ',' + c7b + ')';
-        customPalette[7].style.background = 'rgb(' + c8r + ',' + c8g + ',' + c8b + ')';
+        displayColors();
     }
+}
+
+function displayColors(){
+    customPalette[0].style.background = 'rgb(' + c1r + ',' + c1g + ',' + c1b + ')';
+    customPalette[1].style.background = 'rgb(' + c2r + ',' + c2g + ',' + c2b + ')';
+    customPalette[2].style.background = 'rgb(' + c3r + ',' + c3g + ',' + c3b + ')';
+    customPalette[3].style.background = 'rgb(' + c4r + ',' + c4g + ',' + c4b + ')';
+    customPalette[4].style.background = 'rgb(' + c5r + ',' + c5g + ',' + c5b + ')';
+    customPalette[5].style.background = 'rgb(' + c6r + ',' + c6g + ',' + c6b + ')';
+    customPalette[6].style.background = 'rgb(' + c7r + ',' + c7g + ',' + c7b + ')';
+    customPalette[7].style.background = 'rgb(' + c8r + ',' + c8g + ',' + c8b + ')';
 }
 
 
