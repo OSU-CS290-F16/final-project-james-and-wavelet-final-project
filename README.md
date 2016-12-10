@@ -32,5 +32,5 @@ Known Bugs
        if(remove != 0){
 +        delete colors[remove];
 +      }
-+ in server.js (in  app.get('/delete/:set', function(req,res,next), replacing line 59) to stop it from removing the element with key == 0, but removed it to fix some other bugs and didn't have time to re-add it before the deadline.  
+in server.js (in  app.get('/delete/:set', function(req,res,next), replacing line 59) to stop it from removing the element with key == 0, but removed it to fix some other bugs and didn't have time to re-add it before the deadline.  
  *   Deleting a palette routes to non-existent page (/delete/{{key}}), since we used the path to determine which element to delete from colors.json. This means that every delete puts you in a 404 page, although aside from that it works as intended. 
