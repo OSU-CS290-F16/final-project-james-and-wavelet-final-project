@@ -56,10 +56,16 @@ app.get('/delete/:set', function(req,res,next){
       var colorsJson = fs.readFileSync('colors.json');
       var colors = JSON.parse(colorsJson);
       console.log(colors);
-      delete colors[remove];
+      if(remove != 0){
+        delete colors[remove];
+      }
       console.log(colors);
       var colorsJson = JSON.stringify(colors);
       fs.writeFileSync('colors.json', colorsJson);
+      res.status(200).render('index',{
+          title: 'Draw - Home',
+          color: colorData
+      });
   }
   else{
     next();
