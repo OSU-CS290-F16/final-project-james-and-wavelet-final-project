@@ -51,10 +51,12 @@ app.get('/delete/:set', function(req,res,next){
   //If colors are found
   var colorsIn = colorData[req.params.set];
   var remove = req.params.set;
+  console.log(remove);
   if(colorsIn){//Read in json
       var colorsJson = fs.readFileSync('colors.json');
       var colors = JSON.parse(colorsJson);
-      colors.splice(remove);
+      console.log(colors);
+      delete colors[remove];
       console.log(colors);
       var colorsJson = JSON.stringify(colors);
       fs.writeFileSync('colors.json', colorsJson);
