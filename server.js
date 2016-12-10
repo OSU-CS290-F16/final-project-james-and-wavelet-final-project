@@ -44,6 +44,25 @@ app.get('/colors/:set', function(req,res,next){
     next();
   }
 });
+
+//Delete
+//Sending data to index.js
+app.get('/delete/:set', function(req,res,next){
+  //If colors are found
+  var colorsIn = colorData[req.params.set];
+  var remove = req.params.set;
+  if(colorsIn){//Read in json
+      var colorsJson = fs.readFileSync('colors.json');
+      var colors = JSON.parse(colorsJson);
+      colors.splice(remove);
+      console.log(colors);
+      var colorsJson = JSON.stringify(colors);
+      fs.writeFileSync('colors.json', colorsJson);
+  }
+  else{
+    next();
+  }
+});
 //For a get request to get colors json.
 app.get('/get',function(req,res){
   var colorsJson = fs.readFileSync('colors.json');
